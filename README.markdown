@@ -16,6 +16,15 @@ It addresses a few issues while working with GD2, e.g. format auto-detecting
 * write([type], [args])
 * __call(method, [args])
 
+## Example
+
+Following example reads source PNG file, then fits it into max 300x300 square, crops sides outside 200x200 square and writes it as JPG file. 
+
+        Imaged::create('source.png')
+			->fit(300, 300)
+            ->crop(200, 200, Imaged::CENTER, Imaged::CENTER)
+            ->write('target.jpg');
+
 ## Supported formats
 
 Imaged supports most popular web formats, which are JPEG, PNG and GIF. There is no plan for other formats supported by GD (XPM, XBM, WBMP, GD, GD2 are either not widely used or simply old).
