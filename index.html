@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Imaged by sobstel</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Imaged</h1>
+        <p>Image mainpulation lib. Object-oriented wrapper for PHP GD2 library.</p>
+
+        <p class="view"><a href="https://github.com/sobstel/Imaged">View the Project on GitHub <small>sobstel/Imaged</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sobstel/Imaged/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sobstel/Imaged/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sobstel/Imaged">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Imaged</h1>
+
+<p>Imaged is object-oriented wrapper for GD2 library.</p>
+
+<p>It addresses a few issues while working with GD2, e.g. format auto-detecting
+(both when reading and writing), easy and flexible resizing and cropping etc.</p>
+
+<h2>Methods</h2>
+
+<ul>
+<li>static create(file)</li>
+<li>__construct(file)</li>
+<li>resample(w, h, [srcX], [srcY], [scrW], [srcH])</li>
+<li>crop(w, h, [x], [y])</li>
+<li>fit(w, h, [method])</li>
+<li>write([filename], [args])</li>
+<li>write([type], [args])</li>
+<li>__call(method, [args])</li>
+</ul><h2>Example</h2>
+
+<p>Following example reads source PNG file, then fits it into max 300x300 square, crops sides outside 200x200 square and writes it as JPG file. </p>
+
+<pre><code>    Imaged::create('source.png')
+        -&gt;fit(300, 300)
+        -&gt;crop(200, 200, Imaged::CENTER, Imaged::CENTER)
+        -&gt;write('target.jpg');
+</code></pre>
+
+<h2>Supported formats</h2>
+
+<p>Imaged supports most popular web formats, which are JPEG, PNG and GIF. There is no plan for other formats supported by GD (XPM, XBM, WBMP, GD, GD2 are either not widely used or simply old).</p>
+
+<h2>Exceptions codes</h2>
+
+<ul>
+<li>Loading/saving image
+
+<ul>
+<li>11 Provided file does not exist or is not an image</li>
+<li>12 Unsupported image type (while reading)</li>
+<li>13 Unsupported image type (while writing)</li>
+</ul>
+</li>
+<li>Operations
+
+<ul>
+<li>21 Operation failed - {func}() returned false</li>
+<li>22 Resampling failed - imagecopyresampled() returned false</li>
+<li>23 Unsupported method Imaged::{method}()</li>
+</ul>
+</li>
+<li>Sizes
+
+<ul>
+<li>31 Either width or height must be set</li>
+<li>32 Both new width and new height must be greather than 0</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sobstel">sobstel</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
